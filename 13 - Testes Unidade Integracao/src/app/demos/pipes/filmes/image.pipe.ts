@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ImageFormaterPipe implements PipeTransform {
     transform(imagem: string, caminho: string = '', substituir: boolean = true) {
-        console.log(caminho);
         
         if (caminho == 'default')
             caminho = 'assets';

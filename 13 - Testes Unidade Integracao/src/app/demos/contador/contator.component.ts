@@ -15,11 +15,11 @@ import { Component, Input, ChangeDetectionStrategy, EventEmitter, Output } from 
           tabindex="0">
           <p>{{ valor }}</p>
           <div tabindex="-1">
-            <button type="button" tabindex="-1" (click)="incrementar()" [disabled]="valor === max">
-              +
+            <button class="btn btn-primary mr-4" type="button" tabindex="-1" (click)="incrementar()" [disabled]="valor === max">
+              + Incrementar
             </button>
-            <button type="button" tabindex="-1" (click)="decrementar()" [disabled]="valor === min">
-              -
+            <button class="btn btn-primary mr-4" type="button" tabindex="-1" (click)="decrementar()" [disabled]="valor === min">
+              - Decrementar
             </button>
           </div>
         </div>
