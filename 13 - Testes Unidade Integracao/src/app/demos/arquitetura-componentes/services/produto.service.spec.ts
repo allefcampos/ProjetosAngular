@@ -1,69 +1,67 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { Produto } from '../models/produto';
-import { ProdutoService } from './produto.service';
+import { Produto } from "../models/produto";
+import { ProdutoService } from "./produto.service";
 
-const produtosFake: Produto[] = [{
+const produtosFake: Produto[] = [
+  {
     id: 1,
-    nome: 'Teste',
+    nome: "Teste",
     ativo: true,
     valor: 100,
-    imagem: 'celular.jpg'
-},
-{
+    imagem: "celular.jpg",
+  },
+  {
     id: 2,
-    nome: 'Teste 2',
+    nome: "Teste 2",
     ativo: true,
     valor: 200,
-    imagem: 'gopro.jpg'
-},
-{
+    imagem: "gopro.jpg",
+  },
+  {
     id: 3,
-    nome: 'Teste 3',
+    nome: "Teste 3",
     ativo: true,
     valor: 300,
-    imagem: 'laptop.jpg'
-}];
+    imagem: "laptop.jpg",
+  },
+];
 
-const produtoFake: Produto = 
-{
-    id: 2,
-    nome: 'Teste 2',
-    ativo: true,
-    valor: 200,
-    imagem: 'gopro.jpg'
+const produtoFake: Produto = {
+  id: 2,
+  nome: "Teste 2",
+  ativo: true,
+  valor: 200,
+  imagem: "gopro.jpg",
 };
 
-describe('ProdutoService', () => {
+fdescribe("ProdutoService", () => {
+  let service: ProdutoService;
 
-    let service: ProdutoService;
-
-    beforeEach(() => {
-        const bed = TestBed.configureTestingModule({
-            providers: [
-                ProdutoService
-            ]
-        });
-
-        service = bed.get(ProdutoService);
+  beforeEach(() => {
+    const bed = TestBed.configureTestingModule({
+      providers: [ProdutoService],
     });
 
-    it('Deve retornar uma lista de produtos', () => {
-        spyOn(service, 'obterTodos').and.returnValue(produtosFake);
+    service = bed.get(ProdutoService);
+  });
 
-        let result = service.obterTodos('ativos');
+  it("Deve retornar uma lista de produtos", () => {
+    spyOn(service, "obterTodos").and.returnValue(produtosFake);
 
-        expect(result.length).toBe(3);
+    let result = service.obterTodos("ativos");
 
-        expect(result).toEqual(produtosFake);
-    });
+    expect(result.length).toBe(3);
 
-    it('Deve retornar um produto', () => {
-        spyOn(service, 'obterPorId').and.returnValue(produtoFake);
+    expect(result).toEqual(produtosFake);
+  });
 
-        let result = service.obterPorId(2)
+  it("Deve retornar um produto", () => {
+    // spyOn(service, "obterPorId").and.returnValue(produtoFake);
 
-        expect(result).toEqual(produtoFake);
-        expect(result.id).toEqual(2);
-    });
+    let result = service.obterPorId(2);
+
+    expect(result).toEqual(produtoFake);
+    expect(result.id).toEqual(2);
+  });
 });

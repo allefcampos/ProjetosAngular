@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { Component } from "@angular/core";
 import { ImageFormaterPipe } from "./image.pipe";
 
-fdescribe("ImageFormaterPipe", () => {
+describe("ImageFormaterPipe", () => {
   const imagePipe = new ImageFormaterPipe();
 
   it("Deve transformar o caminho da imagem padrão", () => {
