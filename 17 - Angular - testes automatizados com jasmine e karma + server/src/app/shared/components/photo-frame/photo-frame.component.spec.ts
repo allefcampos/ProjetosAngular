@@ -65,4 +65,17 @@ describe(PhotoFrameComponent.name, () => {
     const element: HTMLElement = fixture.nativeElement.querySelector('.like-widget-container span');
     expect(element.textContent.trim()).toBe('1');
   });
+
+  it(`(D) Should display image with src and description when bound to properties`, () => {
+    const description = 'some description';
+    const src = 'http://somesite.com/img.jpg';
+
+    component.description = description;
+    component.src = src;
+    fixture.detectChanges();
+
+    const img: HTMLImageElement = fixture.nativeElement.querySelector('img');
+    expect(img.getAttribute('src')).toBe(src);
+    expect(img.getAttribute('alt')).toBe(description);
+  });
 });
